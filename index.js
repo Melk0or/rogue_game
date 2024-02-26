@@ -445,6 +445,48 @@ class Scene {
     box.appendChild(newTileW);
   }
 
+  // rerender(tiles, player) {
+  //       for (let j = 0; j <  this.height; j++) {
+  //       for (let k = 0; k < this.width; k++) {
+  //         const newTileW = document.querySelector('.field').children[j + k];
+  //         switch (tiles[j][k]) {
+  //           case "wall":
+  //             newTileW.className = "tileW";
+  //             break;
+  //           case "ground":
+  //             newTileW.className = "tile";
+  //             break;
+  //           case "HP":
+  //             newTileW.className = "tileHP";
+  //             break;
+  //           case "SW":
+  //             newTileW.className = "tileSW";
+  //             break;
+  //           case "Player":
+  //             newTileW.className = "tileP";
+  //             const healthP = newTileW.children[0];
+  //             healthP.className = "health";
+  //             //если мы задали плеера  - формируем хиллбар зависящий от нынешнего его хп
+  //             if (player) healthP.style.width = `${player.health}%`;
+  //             break;
+  //           case "Enemy":
+  //             newTileW.className = "tileE";
+  //             const healthE = newTileW.children[0];
+  //             healthE.className = "health";
+  //             //если в нашем массиве врагов есть чувак с такими координатами - устанавливаем ему хиллбар зависяший от его хп
+  //             const findEnemy = Enemy.enemies.find(
+  //                 (enemy) => enemy.y === j && enemy.x === k
+  //             );
+  //             if (findEnemy) healthE.style.width = `${findEnemy.health}%`;
+  //             // );
+  //             break;
+  //           default:
+  //             break;
+  //         }
+  //       }
+  //     }
+  // }
+
   render(player) {
     const box = document.querySelector(".field");
     //если карта уже существует - не генерируем
@@ -478,6 +520,9 @@ window.addEventListener("DOMContentLoaded", function () {
   function keyProp(e) {
     handleKeyPress(e.key);
   }
+
+
+
 
   //обработик нажатия клавиши
   document.addEventListener("keydown", keyProp);
@@ -536,6 +581,8 @@ window.addEventListener("DOMContentLoaded", function () {
     swords.forEach((sword) => gameMap.placeEntity(sword));
     potions.forEach((potion) => gameMap.placeEntity(potion));
   });
-  setTimeout(() => gameMap.render(), 100);
+  setTimeout(() => {
+    gameMap.render()
+  }, 100);
 });
 
