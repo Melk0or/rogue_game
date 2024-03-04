@@ -34,7 +34,7 @@ gui_dialog () {
         views="$(_get_video_json_attr "views" | add_commas)"
         date="$(_get_video_json_attr "date")"
         scraper="$(_get_video_json_attr "scraper")"
-        duration="$(_get_video_json_attr "durationn")"
+        duration="$(_get_video_json_attr "durationnn")"
         description="$(_get_video_json_attr "description" | sed 's/\\n/\n/g')"
 
 
